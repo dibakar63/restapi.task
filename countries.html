@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .main{
+            
+            display:flex;
+            justify-content: center;
+            box-sizing: border-box;
+            flex-wrap:nowrap;
+            
+        }
+        .container{
+            background-color: rgb(95, 213, 213);
+            padding: 5px;
+            border:5px solid;
+            justify-content: center;
+            text-align: center;
+            width: 50vh;
+        }
+        .container2{
+            background-color: rgb(153, 205, 21);
+            padding: 10px;
+            border:5px solid;
+            justify-content: center;
+            text-align: center;
+            width: 50vh;
+        }
+        .container3{
+            background-color: rgb(180, 29, 117);
+            padding: 10px;
+            border:5px solid;
+            justify-content: center;
+            text-align: center;
+            width: 50vh;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+    <div class="container">
+        <h1>India</h1>
+    </div>
+    <div class="container2">
+
+    </div>
+    <div class="container3">
+        
+    </div>
+    </div>
+    <script >
+        let card1=document.querySelector(".container");
+let card2=document.querySelector(".container2");
+let card3=document.querySelector(".container3");
+
+
+async function getcard1Data(){
+    
+    try {
+        let users;
+        let response=await fetch(`https://restcountries.com/v3.1/name/Peru`,{
+            method:"GET",
+            header:{
+                "Content-type":"application/json"
+            }
+        })
+        users=await response.json();
+        console.log(users[0].name.common);
+        card1.innerHTML=`
+        <div> 
+        <h1>Name:${users[0].name.common}</h1>
+        <img src=
+            "https://flagcdn.com/w320/pe.png"
+          >
+        <h2>Region:${users[0].region}</h2>
+        <h2>Language:${users[0].languages.aym}</h2>
+        <h2><a href="https://api.openweathermap.org/data/2.5/weather?q=Peru,ipe&appid=d6c79015091038761ddb8066501830f9">Click for weather</a></h2>
+        </div>`
+    } catch (error) {
+        alert("There is a error")
+        
+    }
+}
+getcard1Data()
+
+async function getcard2Data(){
+    
+    try {
+        let users;
+        let response=await fetch(`https://restcountries.com/v3.1/name/Japan`,{
+            method:"GET",
+            header:{
+                "Content-type":"application/json"
+            }
+        })
+        users=await response.json();
+        console.log(users[0].name.common);
+        card2.innerHTML=`
+        <div> 
+        <h1>Name:${users[0].name.common}</h1>
+        <img src=
+        "https://flagcdn.com/w320/jp.png"
+          >
+        <h2>Region:${users[0].region}</h2>
+        <h2>Language:${users[0].languages.jpn}</h2>
+        <h2><a href="https://api.openweathermap.org/data/2.5/weather?q=Japan,jp&appid=d6c79015091038761ddb8066501830f9">Click for weather</a></h2>
+        </div>`
+    } catch (error) {
+        alert("There is a error")
+        
+    }
+}
+getcard2Data()
+
+async function getcard3Data(){
+    
+    try {
+        let users;
+        let response=await fetch(`https://restcountries.com/v3.1/name/China`,{
+            method:"GET",
+            header:{
+                "Content-type":"application/json"
+            }
+        })
+        users=await response.json();
+        console.log(users[0].name.common);
+        card3.innerHTML=`
+        <div> 
+        <h1>Name:${users[0].name.common}</h1>
+        <img src=
+            "https://flagcdn.com/w320/tw.png"
+          >
+        <h2>Region:${users[0].region}</h2>
+        <h2>Language:${users[0].languages.zho}</h2>
+        <h2><a href="https://api.openweathermap.org/data/2.5/weather?q=China&appid=d6c79015091038761ddb8066501830f9">Click for weather</a></h2>
+        </div>`
+    } catch (error) {
+        alert("There is a error")
+        
+    }
+}
+getcard3Data()
+    </script>
+</body>
+</html>
